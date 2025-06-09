@@ -7,20 +7,29 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.create3droom.controller.MenuController">
+            fx:controller="org.example.create3droom.controller.MenuController"
+            stylesheets="/org/example/create3droom/styles.css"
+            styleClass="root">
     <children>
-        <VBox alignment="CENTER" spacing="20"
-              AnchorPane.topAnchor="50"
-              AnchorPane.leftAnchor="50"
-              AnchorPane.rightAnchor="50">
-            <Label text="Добро пожаловать в 3D планировщик!" style="-fx-font-size: 24px;" />
-            <Button fx:id="createRoomButton"
-                    text="Создать комнату"
-                    onAction="#onCreateRoomClicked"/>
-            <Button fx:id="pastWorksButton"
-                    text="Посмотреть прошлые работы"
-                    onAction="#onShowPastWorksClicked"/>
+        <VBox alignment="CENTER" spacing="30"
+              AnchorPane.topAnchor="0"
+              AnchorPane.bottomAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+            <Label text="Добро пожаловать в 3D планировщик!"
+                   styleClass="title"/>
 
+
+            <VBox alignment="CENTER" spacing="15">
+                <Button fx:id="createRoomButton"
+                        text="Создать комнату"
+                        onAction="#onCreateRoomClicked"
+                        styleClass="btn-primary"/>
+                <Button fx:id="pastWorksButton"
+                        text="Посмотреть прошлые работы"
+                        onAction="#onShowPastWorksClicked"
+                        styleClass="btn-secondary"/>
+            </VBox>
         </VBox>
     </children>
 </AnchorPane>
