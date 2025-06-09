@@ -10,7 +10,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.create3droom.controller.PastWorksController"
-            stylesheets="@../styles.css"
+            stylesheets="@../org/example/create3droom/styles.css"
             styleClass="past-works-root"
             fx:id="rootPane">
 

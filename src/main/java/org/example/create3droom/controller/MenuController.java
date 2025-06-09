@@ -19,7 +19,7 @@ public class MenuController {
         try {
             Parent root = FXMLLoader.load(
                     Objects.requireNonNull(
-                            getClass().getResource("/org/example/create3droom/view/room_setup.fxml")
+                            getClass().getResource("/view/room_setup.fxml")
                     )
             );
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -41,7 +41,7 @@ public class MenuController {
         try {
             Parent root = FXMLLoader.load(
                     Objects.requireNonNull(
-                            getClass().getResource("/org/example/create3droom/view/past_works.fxml")
+                            getClass().getResource("/view/past_works.fxml")
                     )
             );
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

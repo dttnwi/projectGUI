@@ -80,7 +80,7 @@ public class PastWorksController {
     private void onBackButtonClicked() {
         try {
             Parent root = FXMLLoader.load(
-                    getClass().getResource("/org/example/create3droom/view/menu.fxml")
+                    getClass().getResource("/view/menu.fxml")
             );
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
             Scene scene = new Scene(root);
@@ -100,7 +100,7 @@ public class PastWorksController {
     private void openFurnitureSelectionWithRoomState(RoomState roomState) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml")
+                    getClass().getResource("/view/furniture_selection.fxml")
             );
             Parent root = loader.load();
             FurnitureSelectionController controller = loader.getController();

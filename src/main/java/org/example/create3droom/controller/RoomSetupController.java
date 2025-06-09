@@ -45,7 +45,7 @@ public class RoomSetupController implements Initializable {
         try {
             Parent root = FXMLLoader.load(
                     Objects.requireNonNull(
-                            getClass().getResource("/org/example/create3droom/view/menu.fxml")
+                            getClass().getResource("/view/menu.fxml")
                     )
             );
             Stage stage = (Stage) root3DContainer.getScene().getWindow();
@@ -75,7 +75,7 @@ public class RoomSetupController implements Initializable {
 
             AnchorPane pane = FXMLLoader.load(
                     Objects.requireNonNull(
-                            getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml")
+                            getClass().getResource("/view/furniture_selection.fxml")
                     )
             );
             Stage stage = (Stage) nextButton.getScene().getWindow();

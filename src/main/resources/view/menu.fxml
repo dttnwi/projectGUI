@@ -10,7 +10,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.create3droom.controller.MenuController"
-            stylesheets="@../styles.css"
+            stylesheets="@../org/example/create3droom/styles.css"
             styleClass="root">                                       <!-- класс root -->
 
     <!-- Центральная карточка -->
@@ -29,7 +29,7 @@
 
             <ImageView fitHeight="100" preserveRatio="true">
                 <image>
-                    <Image url="@../images/logo.png"/>
+                    <Image url="@../org/example/create3droom/images/logo.png"/>
                 </image>
             </ImageView>
         </VBox>
