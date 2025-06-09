@@ -49,10 +49,10 @@ public class RoomSetupController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
             Parent root = loader.load();
 
-            // Проверка на null
             if (root3DContainer != null && root3DContainer.getScene() != null) {
                 Stage stage = (Stage) root3DContainer.getScene().getWindow();
                 stage.setScene(new Scene(root));
+                stage.setFullScreen(true);
                 stage.setTitle("3D Планировщик");
                 stage.show();
             } else {

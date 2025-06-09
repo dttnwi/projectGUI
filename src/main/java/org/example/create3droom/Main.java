@@ -24,8 +24,8 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Домик. 3D Планировщик");
-
         primaryStage.setMaximized(true);
+        primaryStage.setFullScreen(true);
 
 
         primaryStage.show();
