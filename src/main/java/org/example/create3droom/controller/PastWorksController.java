@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import org.example.create3droom.RoomState;
 
@@ -44,7 +45,7 @@ public class PastWorksController {
     private void onLoadSelectedClicked() {
         int idx = savedWorksListView.getSelectionModel().getSelectedIndex();
         if (idx < 0) {
-            showAlert("Выберите сохранённую работу для загрузки если она есть в списке.");
+            showAlert("Выберите сохранённую работу для загрузки");
             return;
         }
 
@@ -62,7 +63,7 @@ public class PastWorksController {
     private void onDeleteSelectedClicked() {
         int idx = savedWorksListView.getSelectionModel().getSelectedIndex();
         if (idx < 0) {
-            showAlert("Выберите сохранённую работу для удаления если она есть в списке.");
+            showAlert("Выберите сохранённую работу для удаления");
             return;
         }
 
@@ -78,15 +79,18 @@ public class PastWorksController {
     @FXML
     private void onBackButtonClicked() {
         try {
-            FXMLLoader loader = new FXMLLoader(
+            Parent root = FXMLLoader.load(
                     getClass().getResource("/org/example/create3droom/view/menu.fxml")
             );
-            Parent root = loader.load();
-
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setMaximized(true);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Главное меню");
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
         } catch (IOException e) {
             showAlert("Не удалось вернуться в главное меню: " + e.getMessage());
             e.printStackTrace();
@@ -99,14 +103,18 @@ public class PastWorksController {
                     getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml")
             );
             Parent root = loader.load();
-
             FurnitureSelectionController controller = loader.getController();
             controller.applyRoomState(roomState);
 
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setMaximized(true);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Редактор комнаты");
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
         } catch (IOException e) {
             showAlert("Ошибка при открытии редактора комнаты.");
             e.printStackTrace();
