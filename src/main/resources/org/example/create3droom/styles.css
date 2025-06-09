@@ -1,6 +1,5 @@
-/* === корневой контейнер === */
 .root {
-  -fx-background-color: #FFF1E6; /* бежевый фон-основа */
+  -fx-background-color: #FFF1E6;
   -fx-background-image: url("images/bg-pattern.png");
   -fx-background-repeat: repeat;
   -fx-background-position: center center;
@@ -10,23 +9,21 @@
   -fx-font-size: 16px;
 }
 
-/* === заголовок === */
 .title {
-  -fx-text-fill: #4A4A4A;      /* чуть темнее для контраста */
-  -fx-font-size: 28px;         /* увеличили размер */
+  -fx-text-fill: #4A4A4A;
+  -fx-font-size: 28px;
   -fx-font-weight: bold;
   -fx-effect: dropshadow(
       gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2
   );
 }
 
-/* === общие настройки кнопок === */
 .button {
   -fx-text-fill: #47423B;
   -fx-font-size: 20px;
   -fx-font-weight: bold;
   -fx-font-family: "Segoe UI", sans-serif;
-  -fx-text-transform: uppercase;        /* заглавные буквы */
+  -fx-text-transform: uppercase;
   -fx-background-radius: 6;
   -fx-padding: 12 24;
   -fx-cursor: hand;
@@ -36,9 +33,8 @@
   -fx-transition: all 200ms ease;
 }
 
-/* === первичная кнопка === */
 .btn-primary {
-  -fx-background-color: "#C886FF";
+  -fx-background-color: "#B8E1DD";
 }
 .btn-primary:hover {
   -fx-background-color:
@@ -49,9 +45,8 @@
     );
 }
 
-/* === вторичная кнопка === */
 .btn-secondary {
-  -fx-background-color: #B8E1DD;
+  -fx-background-color: "#B8E1DD";
   -fx-text-fill: 47423B;
 }
 .btn-secondary:hover {

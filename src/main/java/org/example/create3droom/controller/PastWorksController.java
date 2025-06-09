@@ -79,7 +79,7 @@ public class PastWorksController {
 
     private void openFurnitureSelectionWithRoomState(RoomState roomState) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/furniture_selection.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml"));
             Parent root = loader.load();
 
             FurnitureSelectionController controller = loader.getController();

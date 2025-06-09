@@ -15,7 +15,7 @@ public class MenuController {
     @FXML
     private void onCreateRoomClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/room_setup.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/room_setup.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Создание комнаты");
@@ -28,7 +28,7 @@ public class MenuController {
     @FXML
     private void onShowPastWorksClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/past_works.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/past_works.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Прошлые работы");

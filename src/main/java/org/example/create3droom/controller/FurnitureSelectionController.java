@@ -7,12 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import org.example.create3droom.FurnitureState;
 import org.example.create3droom.RoomState;
 import org.example.create3droom.model.FurnitureModel;
@@ -356,7 +354,7 @@ public class FurnitureSelectionController {
     @FXML
     private void onBackClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/menu.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/menu.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Главное меню");

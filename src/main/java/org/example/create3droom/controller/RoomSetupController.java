@@ -45,7 +45,7 @@ public class RoomSetupController implements Initializable {
     @FXML
     private void onBackClicked() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/create3droom/view/menu.fxml"));
             Parent root = loader.load();
 
             // Используем root3DContainer для получения текущего Stage
@@ -71,7 +71,7 @@ public class RoomSetupController implements Initializable {
             // Сохраняем параметры
             RoomParams.set(width, length, height, roomType);
 
-            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/furniture_selection.fxml")));
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml")));
             Stage stage = (Stage) nextButton.getScene().getWindow();
             stage.setScene(new Scene(pane));
 
