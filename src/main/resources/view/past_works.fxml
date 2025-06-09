@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/17"
+            fx:controller="org.example.create3droom.controller.PastWorksController">
+
+    <children>
+        <VBox spacing="10" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="10">
+            <Label text="Сохранённые проекты" style="-fx-font-size: 18px;" />
+            <ListView fx:id="savedWorksListView" prefWidth="300" prefHeight="400"/>
+            <HBox spacing="10">
+                <Button text="Загрузить выбранный" onAction="#onLoadSelectedClicked"/>
+                <Button text="Удалить выбранный" onAction="#onDeleteSelectedClicked"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

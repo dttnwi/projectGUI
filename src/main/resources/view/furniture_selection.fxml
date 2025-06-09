@@ -1,0 +1,29 @@
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.create3droom.controller.FurnitureSelectionController">
+
+    <children>
+        <VBox spacing="10" layoutX="10" layoutY="10" prefWidth="300" prefHeight="580"
+              style="-fx-padding: 10;">
+            <ComboBox fx:id="categoryComboBox" prefWidth="280"/>
+            <ListView fx:id="furnitureListView" prefWidth="280" prefHeight="400"/>
+            <HBox spacing="10">
+                <Button text="Добавить мебель" onAction="#onAddFurnitureClicked" prefWidth="130"/>
+                <Button text="Масштаб мебели" onAction="#onScaleFurnitureClicked" prefWidth="130"/>
+            </HBox>
+            <HBox spacing="10">
+                <Button text="Назад в меню" onAction="#onBackClicked" prefWidth="130"/>
+            </HBox><Button text="Сохранить работу" onAction="#onSaveRoomClicked"/>
+        </VBox>
+
+        <Group fx:id="root3DContainer" layoutX="320" layoutY="10"/>
+    </children>
+</AnchorPane>
