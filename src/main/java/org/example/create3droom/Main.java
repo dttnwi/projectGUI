@@ -10,11 +10,24 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/view/menu.fxml")
+        );
         AnchorPane root = loader.load();
-        Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("3D Планировщик");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(
+                getClass()
+                        .getResource("/org/example/create3droom/styles.css")
+                        .toExternalForm()
+        );
+
         primaryStage.setScene(scene);
+        primaryStage.setTitle("Домик. 3D Планировщик");
+
+        primaryStage.setMaximized(true);
+
+
         primaryStage.show();
     }
 

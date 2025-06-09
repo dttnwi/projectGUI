@@ -1,0 +1,59 @@
+.root {
+  -fx-background-color: #FFF1E6; /* бежевый фон-основа */
+  -fx-background-image: url("images/bg-pattern.png");
+  -fx-background-repeat: repeat;
+  -fx-background-position: center center;
+  -fx-padding: 40;
+  -fx-font-family: "Segoe UI Semibold", "Segoe UI", sans-serif;
+  -fx-font-size: 16px;
+}
+
+.past-works-root {
+  -fx-background-image: url("images/bg-3.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center center;
+  -fx-background-size: cover;
+}
+
+.title {
+  -fx-text-fill: #4A4A4A;
+  -fx-font-size: 28px;
+  -fx-font-weight: bold;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0, 0, 2);
+}
+
+Button {
+  -fx-text-fill: #47423B;
+  -fx-font-size: 18px;
+  -fx-font-weight: bold;
+  -fx-font-family: "Segoe UI", sans-serif;
+  -fx-text-transform: uppercase;
+  -fx-background-radius: 6;
+  -fx-padding: 12 24;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);
+  -fx-transition: all 200ms ease;
+}
+
+.btn-primary {
+  -fx-background-color: #B8E1DD;
+}
+.btn-primary:hover {
+  -fx-background-color: linear-gradient(
+      to bottom right,
+      #B166E0 0%,
+      #E699CC 100%
+  );
+}
+
+.btn-secondary {
+  -fx-background-color: #B8E1DD;
+  -fx-text-fill: #47423B;
+}
+.btn-secondary:hover {
+  -fx-background-color: linear-gradient(
+      to bottom right,
+      #9ACACC 0%,
+      #FFC3A0 100%
+  );
+}

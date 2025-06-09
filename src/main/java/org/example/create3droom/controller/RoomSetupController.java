@@ -8,6 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.create3droom.model.RoomParams;
@@ -24,6 +25,7 @@ public class RoomSetupController implements Initializable {
     @FXML private TextField heightField;
     @FXML private Button backButton;
     @FXML private Button nextButton;
+
     @FXML private AnchorPane rootPane; // Reference to the root AnchorPane for background setting
 
     @FXML private Group root3DContainer;
@@ -33,7 +35,6 @@ public class RoomSetupController implements Initializable {
         // Set the background image (update the path as needed)
         setBackgroundImage(getClass().getResource("/fon.png").toExternalForm()); // Use the correct resource path
 
-        // Disable the next button if any fields are empty
         BooleanBinding fieldsEmpty = widthField.textProperty().isEmpty()
                 .or(lengthField.textProperty().isEmpty())
                 .or(heightField.textProperty().isEmpty());
@@ -44,6 +45,7 @@ public class RoomSetupController implements Initializable {
     @FXML
     private void onBackClicked() {
         try {
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
             Parent root = loader.load();
 
@@ -62,29 +64,43 @@ public class RoomSetupController implements Initializable {
     }
 
     @FXML
-    private void onNextClicked() throws IOException {
+    private void onNextClicked() {
         try {
             double width = Double.parseDouble(widthField.getText().replace(',', '.'));
             double length = Double.parseDouble(lengthField.getText().replace(',', '.'));
             double height = Double.parseDouble(heightField.getText().replace(',', '.'));
 
-            // Save room parameters without room type
-            RoomParams.set(width, length, height, ""); // Set an empty string for room type
 
-            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/furniture_selection.fxml")));
+            RoomParams.set(width, length, height, ""); 
+
+
+            AnchorPane pane = FXMLLoader.load(
+                    Objects.requireNonNull(
+                            getClass().getResource("/view/furniture_selection.fxml")
+                    )
+            );
             Stage stage = (Stage) nextButton.getScene().getWindow();
-            stage.setScene(new Scene(pane));
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.setTitle("Редактор комнаты");
 
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
+            stage.show();
         } catch (NumberFormatException e) {
             showAlert("Ошибка", "Пожалуйста, введите корректные числа для параметров комнаты.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Ошибка", "Не удалось загрузить следующий экран.");
         }
     }
 
     private void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR, content, ButtonType.OK);
         alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(content);
         alert.showAndWait();
     }
 

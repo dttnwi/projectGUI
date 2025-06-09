@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -15,11 +17,20 @@ public class MenuController {
     @FXML
     private void onCreateRoomClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/room_setup.fxml")));
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            Parent root = FXMLLoader.load(
+                    Objects.requireNonNull(
+                            getClass().getResource("/view/room_setup.fxml")
+                    )
+            );
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Создание комнаты");
-            stage.show();
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,11 +39,20 @@ public class MenuController {
     @FXML
     private void onShowPastWorksClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/past_works.fxml")));
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            Parent root = FXMLLoader.load(
+                    Objects.requireNonNull(
+                            getClass().getResource("/view/past_works.fxml")
+                    )
+            );
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Прошлые работы");
-            stage.show();
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

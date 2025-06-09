@@ -2,25 +2,48 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.create3droom.controller.MenuController">
-    <children>
-        <VBox alignment="CENTER" spacing="20"
-              AnchorPane.topAnchor="50"
-              AnchorPane.leftAnchor="50"
-              AnchorPane.rightAnchor="50">
-            <Label text="Добро пожаловать в 3D планировщик!" style="-fx-font-size: 24px;" />
-            <Button fx:id="createRoomButton"
-                    text="Создать комнату"
-                    onAction="#onCreateRoomClicked"/>
-            <Button fx:id="pastWorksButton"
-                    text="Посмотреть прошлые работы"
-                    onAction="#onShowPastWorksClicked"/>
+            fx:controller="org.example.create3droom.controller.MenuController"
+            stylesheets="@../org/example/create3droom/styles.css"
+            styleClass="root">                                       <!-- класс root -->
 
+    <!-- Центральная карточка -->
+    <VBox fx:id="card" styleClass="main-card"
+          AnchorPane.topAnchor="10"
+          AnchorPane.bottomAnchor="10"
+          AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10"
+          spacing="30"
+          alignment="TOP_CENTER">
+
+        <!-- Заголовок и картинка под ним -->
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Добро пожаловать в 3D планировщик!"
+                   styleClass="title"/>                           <!-- класс title -->
+
+            <ImageView fitHeight="100" preserveRatio="true">
+                <image>
+                    <Image url="@../org/example/create3droom/images/logo.png"/>
+                </image>
+            </ImageView>
         </VBox>
-    </children>
+
+        <!-- Кнопки -->
+        <VBox spacing="20" alignment="CENTER">
+            <Button text="Создать комнату"
+                    onAction="#onCreateRoomClicked"
+                    styleClass="btn-primary"/>                      <!-- primary -->
+
+            <Button text="Посмотреть прошлые работы"
+                    onAction="#onShowPastWorksClicked"
+                    styleClass="btn-secondary"/>                    <!-- secondary -->
+        </VBox>
+
+    </VBox>
 </AnchorPane>
