@@ -18,7 +18,9 @@ public class MenuController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/room_setup.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Создание комнаты");
+            stage.setMaximized(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,7 +33,9 @@ public class MenuController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/past_works.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Прошлые работы");
+            stage.setMaximized(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

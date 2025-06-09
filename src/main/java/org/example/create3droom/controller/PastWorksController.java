@@ -44,7 +44,7 @@ public class PastWorksController {
     private void onLoadSelectedClicked() {
         int idx = savedWorksListView.getSelectionModel().getSelectedIndex();
         if (idx < 0) {
-            showAlert("Выберите сохранённую работу для загрузки.");
+            showAlert("Выберите сохранённую работу для загрузки если она есть в списке.");
             return;
         }
 
@@ -62,7 +62,7 @@ public class PastWorksController {
     private void onDeleteSelectedClicked() {
         int idx = savedWorksListView.getSelectionModel().getSelectedIndex();
         if (idx < 0) {
-            showAlert("Выберите сохранённую работу для удаления.");
+            showAlert("Выберите сохранённую работу для удаления если она есть в списке.");
             return;
         }
 
@@ -75,7 +75,6 @@ public class PastWorksController {
         }
     }
 
-    // --- НОВЫЙ метод: возвращаемся в главное меню ---
     @FXML
     private void onBackButtonClicked() {
         try {
@@ -86,6 +85,7 @@ public class PastWorksController {
 
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Главное меню");
         } catch (IOException e) {
             showAlert("Не удалось вернуться в главное меню: " + e.getMessage());
@@ -105,6 +105,7 @@ public class PastWorksController {
 
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Редактор комнаты");
         } catch (IOException e) {
             showAlert("Ошибка при открытии редактора комнаты.");

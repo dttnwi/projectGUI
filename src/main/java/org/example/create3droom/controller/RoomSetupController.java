@@ -51,6 +51,7 @@ public class RoomSetupController implements Initializable {
             // Используем root3DContainer для получения текущего Stage
             Stage stage = (Stage) root3DContainer.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("3D Планировщик");
             stage.show();
         } catch (Exception e) {
@@ -74,6 +75,7 @@ public class RoomSetupController implements Initializable {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/furniture_selection.fxml")));
             Stage stage = (Stage) nextButton.getScene().getWindow();
             stage.setScene(new Scene(pane));
+            stage.setMaximized(true);
 
         } catch (NumberFormatException e) {
             showAlert("Ошибка", "Пожалуйста, введите корректные числа для параметров комнаты.");

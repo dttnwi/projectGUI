@@ -357,6 +357,7 @@ public class FurnitureSelectionController {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/org/example/create3droom/view/menu.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setMaximized(true);
             stage.setTitle("Главное меню");
         } catch (IOException e) {
             showAlert("Не удалось загрузить главное меню.");
