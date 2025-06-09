@@ -3,6 +3,7 @@ package org.example.create3droom;
 import java.io.Serializable;
 
 public class FurnitureState implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     public String modelName;
