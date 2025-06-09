@@ -14,8 +14,8 @@ public class Main extends Application {
                 getClass().getResource("/org/example/create3droom/view/menu.fxml")
         );
         AnchorPane root = loader.load();
-        Scene scene = new Scene(root);
 
+        Scene scene = new Scene(root);
         scene.getStylesheets().add(
                 getClass()
                         .getResource("/org/example/create3droom/styles.css")
@@ -27,8 +27,10 @@ public class Main extends Application {
 
         primaryStage.setMaximized(true);
 
+
         primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
