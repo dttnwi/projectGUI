@@ -179,7 +179,9 @@ public class FurnitureSelectionController {
             return;
         }
 
-        Group model3D = selectedModel.getModel3D();
+//        Group model3D = selectedModel.getModel3D();
+        Group model3D = ModelLoader.getModelByName(selectedModel.getName()).getModel3D(); // должен возвращать новый экземпляр!
+
         if (model3D == null) {
             showAlert("Не удалось загрузить модель.");
             return;
@@ -195,7 +197,6 @@ public class FurnitureSelectionController {
         wrapper.setTranslateY(0);
         wrapper.setTranslateZ(0);
 
-        // Сохраняем имя модели для последующего сохранения
         wrapper.getProperties().put("modelName", selectedModel.getName());
 
         furnitureGroup.getChildren().add(wrapper);
@@ -238,28 +239,32 @@ public class FurnitureSelectionController {
     private void enableModelInteraction(Group model) {
         final double[] prevMouseX = new double[1];
         final double[] prevMouseY = new double[1];
+        final boolean[] dragging = new boolean[1];
 
         model.setOnMousePressed(e -> {
             if (e.getButton() == MouseButton.PRIMARY) {
                 selectedFurniture = model;
                 model.requestFocus();
-
                 prevMouseX[0] = e.getSceneX();
                 prevMouseY[0] = e.getSceneY();
-
+                dragging[0] = true;
                 e.consume();
             }
         });
 
+        model.setOnMouseReleased(e -> {
+            dragging[0] = false;
+            e.consume();
+        });
+
         model.setOnMouseDragged(e -> {
-            if (e.getButton() == MouseButton.PRIMARY) {
+            if (e.getButton() == MouseButton.PRIMARY && dragging[0]) {
                 double deltaX = e.getSceneX() - prevMouseX[0];
                 double deltaY = e.getSceneY() - prevMouseY[0];
 
                 prevMouseX[0] = e.getSceneX();
                 prevMouseY[0] = e.getSceneY();
 
-                // Убираем деление на roomScale и добавляем MOVE_SPEED
                 double moveX = deltaX * MOVE_SPEED;
                 double moveZ = deltaY * MOVE_SPEED;
                 double moveY = -deltaY * MOVE_SPEED;
@@ -283,6 +288,7 @@ public class FurnitureSelectionController {
 
         model.setOnScroll(event -> event.consume());
     }
+
 
     // Сохранение состояния комнаты
     @FXML
@@ -339,7 +345,6 @@ public class FurnitureSelectionController {
         return roomState;
     }
 
-    // Вспомогательные методы для алертов
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Ошибка");
