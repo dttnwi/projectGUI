@@ -12,6 +12,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.create3droom.model.RoomParams;
+import org.example.create3droom.utils.SceneTransitionUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -45,16 +46,17 @@ public class RoomSetupController implements Initializable {
     @FXML
     private void onBackClicked() {
         try {
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
             Parent root = loader.load();
 
             if (root3DContainer != null && root3DContainer.getScene() != null) {
+                Parent menuRoot = FXMLLoader.load(
+                        Objects.requireNonNull(getClass().getResource("/view/menu.fxml"))
+                );
                 Stage stage = (Stage) root3DContainer.getScene().getWindow();
-                stage.setScene(new Scene(root));
                 stage.setFullScreen(true);
                 stage.setTitle("3D Планировщик");
-                stage.show();
+                SceneTransitionUtil.fadeToScene(stage, menuRoot);
             } else {
                 System.err.println("root3DContainer is null or not attached to a scene.");
             }
@@ -81,14 +83,13 @@ public class RoomSetupController implements Initializable {
             );
             Stage stage = (Stage) nextButton.getScene().getWindow();
             Scene scene = new Scene(pane);
+            Parent menuRoot = FXMLLoader.load(
+                    Objects.requireNonNull(getClass().getResource("/view/furniture_selection.fxml"))
+            );
             stage.setScene(scene);
             stage.setTitle("Редактор комнаты");
-
             stage.setFullScreen(true);
-            stage.setFullScreenExitHint("");
-            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-
-            stage.show();
+            SceneTransitionUtil.fadeToScene(stage, menuRoot);
         } catch (NumberFormatException e) {
             showAlert("Ошибка", "Пожалуйста, введите корректные числа для параметров комнаты.");
         } catch (IOException e) {

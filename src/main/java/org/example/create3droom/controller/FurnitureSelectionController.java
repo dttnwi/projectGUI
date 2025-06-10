@@ -1,4 +1,6 @@
 package org.example.create3droom.controller;
+import org.example.create3droom.utils.SceneTransitionUtil;
+
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -354,9 +356,9 @@ public class FurnitureSelectionController {
     @FXML
     private void onBackClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/menu.fxml")));
+            Parent menuRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/menu.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            SceneTransitionUtil.fadeToScene(stage, menuRoot);
             stage.setMaximized(true);
             stage.setTitle("Главное меню");
             stage.setFullScreen(true);

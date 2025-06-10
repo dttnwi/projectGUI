@@ -10,10 +10,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import org.example.create3droom.RoomState;
+import org.example.create3droom.utils.SceneTransitionUtil;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PastWorksController {
 
@@ -79,18 +81,15 @@ public class PastWorksController {
     @FXML
     private void onBackButtonClicked() {
         try {
-            Parent root = FXMLLoader.load(
-                    getClass().getResource("/view/menu.fxml")
+            Parent menuRoot = FXMLLoader.load(
+                    Objects.requireNonNull(getClass().getResource("/view/menu.fxml"))
             );
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
             stage.setTitle("Главное меню");
-
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
             stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-
+            SceneTransitionUtil.fadeToScene(stage, menuRoot);
         } catch (IOException e) {
             showAlert("Не удалось вернуться в главное меню: " + e.getMessage());
             e.printStackTrace();
@@ -100,21 +99,18 @@ public class PastWorksController {
     private void openFurnitureSelectionWithRoomState(RoomState roomState) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/furniture_selection.fxml")
+                    Objects.requireNonNull(getClass().getResource("/view/furniture_selection.fxml"))
             );
-            Parent root = loader.load();
-            FurnitureSelectionController controller = loader.getController();
-            controller.applyRoomState(roomState);
+            Parent fsRoot = loader.load();
+            FurnitureSelectionController ctrl = loader.getController();
+            ctrl.applyRoomState(roomState);
 
             Stage stage = (Stage) savedWorksListView.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
             stage.setTitle("Редактор комнаты");
-
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
             stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-
+            SceneTransitionUtil.fadeToScene(stage, fsRoot);
         } catch (IOException e) {
             showAlert("Ошибка при открытии редактора комнаты.");
             e.printStackTrace();
