@@ -8,8 +8,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Main extends Application {
 
+public class Main extends Application {
+//коментприй
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
