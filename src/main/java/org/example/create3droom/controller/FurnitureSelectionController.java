@@ -1,4 +1,6 @@
 package org.example.create3droom.controller;
+import org.example.create3droom.utils.SceneTransitionUtil;
+
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -354,11 +356,12 @@ public class FurnitureSelectionController {
     @FXML
     private void onBackClicked(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/menu.fxml")));
+            Parent menuRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/menu.fxml")));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            SceneTransitionUtil.fadeToScene(stage, menuRoot);
             stage.setMaximized(true);
             stage.setTitle("Главное меню");
+            stage.setFullScreen(true);
         } catch (IOException e) {
             showAlert("Не удалось загрузить главное меню.");
             e.printStackTrace();
@@ -366,22 +369,18 @@ public class FurnitureSelectionController {
     }
 
     public void applyRoomState(RoomState roomState) {
-        // Устанавливаем масштаб комнаты
         roomScale = roomState.roomScale;
 
         roomGroup.setScaleX(roomScale);
         roomGroup.setScaleY(roomScale);
         roomGroup.setScaleZ(roomScale);
 
-        // Обновляем параметры комнаты (если нужно)
         RoomParams.width = roomState.roomWidth;
         RoomParams.length = roomState.roomLength;
         RoomParams.height = roomState.roomHeight;
 
-        // Очищаем текущую мебель
         furnitureGroup.getChildren().clear();
 
-        // Добавляем мебель из состояния
         for (FurnitureState fState : roomState.furnitures) {
             FurnitureModel model = ModelLoader.getModelByName(fState.modelName);
             if (model == null) continue;
@@ -398,7 +397,6 @@ public class FurnitureSelectionController {
             wrapper.setTranslateY(fState.translateY);
             wrapper.setTranslateZ(fState.translateZ);
 
-            // Сохраняем имя модели в свойствах
             wrapper.getProperties().put("modelName", fState.modelName);
 
             furnitureGroup.getChildren().add(wrapper);
