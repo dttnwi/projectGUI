@@ -36,6 +36,7 @@ public class Main extends Application {
 
         FadeTransition fadeIn = new FadeTransition(Duration.millis(800), root);
         fadeIn.setFromValue(0);
+
         fadeIn.setToValue(1);
         fadeIn.play();
     }
