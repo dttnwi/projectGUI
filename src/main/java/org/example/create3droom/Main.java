@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
+//hbu
 public class Main extends Application {
 //коментприй
     @Override
