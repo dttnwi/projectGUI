@@ -38,6 +38,35 @@ Button {
 .btn-primary {
   -fx-background-color: #B8E1DD;
 }
+.btn-room{
+    -fx-padding: 8 16;
+    -fx-font-size: 14px;
+    -fx-background-color: #B8E1DD;
+}
+
+.btn-add{
+    -fx-padding: 10 18;
+    -fx-font-size: 12px;
+    -fx-background-color: #B8E1DD;
+}
+
+.btn-add(hover){
+  -fx-background-color: linear-gradient(
+      to bottom right,
+      #B166E0 0%,
+      #E699CC 100%
+  );
+}
+
+.btn-room(hover){
+  -fx-background-color: linear-gradient(
+      to bottom right,
+      #B166E0 0%,
+      #E699CC 100%
+  );
+}
+
+
 .btn-primary:hover {
   -fx-background-color: linear-gradient(
       to bottom right,

@@ -8,20 +8,33 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../org/example/create3droom/styles.css"
             fx:controller="org.example.create3droom.controller.FurnitureSelectionController">
-
     <children>
         <VBox spacing="10" layoutX="10" layoutY="10" prefWidth="300" prefHeight="580"
               style="-fx-padding: 10;">
-            <ComboBox fx:id="categoryComboBox" prefWidth="280"/>
+            <ComboBox fx:id="categoryComboBox"
+                      promptText="Выбор мебели"
+                      prefWidth="280"/>
             <ListView fx:id="furnitureListView" prefWidth="280" prefHeight="400"/>
+            <VBox spacing="10">
+                <Button text="Добавить мебель"
+                        onAction="#onAddFurnitureClicked"
+                        prefWidth="150"
+                        styleClass="btn-add"/>
+                <Button text="Масштаб мебели"
+                        onAction="#onScaleFurnitureClicked"
+                        prefWidth="150"
+                        styleClass="btn-add"/>
+            </VBox>
             <HBox spacing="10">
-                <Button text="Добавить мебель" onAction="#onAddFurnitureClicked" prefWidth="130"/>
-                <Button text="Масштаб мебели" onAction="#onScaleFurnitureClicked" prefWidth="130"/>
-            </HBox>
-            <HBox spacing="10">
-                <Button text="Назад в меню" onAction="#onBackClicked" prefWidth="130"/>
-            </HBox><Button text="Сохранить работу" onAction="#onSaveRoomClicked"/>
+                <Button text="Назад в меню"
+                        onAction="#onBackClicked"
+                        prefWidth="130"
+                        styleClass="btn-room"/>
+            </HBox><Button text="Сохранить работу"
+                           onAction="#onSaveRoomClicked"
+                           styleClass="btn-room"/>
         </VBox>
 
         <Group fx:id="root3DContainer" layoutX="320" layoutY="10"/>

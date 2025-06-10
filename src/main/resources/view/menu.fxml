@@ -38,11 +38,11 @@
         <VBox spacing="20" alignment="CENTER">
             <Button text="Создать комнату"
                     onAction="#onCreateRoomClicked"
-                    styleClass="btn-primary"/>                      <!-- primary -->
+                    styleClass="btn-primary"/>
 
             <Button text="Посмотреть прошлые работы"
                     onAction="#onShowPastWorksClicked"
-                    styleClass="btn-secondary"/>                    <!-- secondary -->
+                    styleClass="btn-secondary"/>
         </VBox>
 
     </VBox>
